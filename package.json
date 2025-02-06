@@ -1,0 +1,16 @@
+{
+  "name": "ovenbackendtesttask",
+  "version": "1.0.0",
+  "description": "oven backend test task",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^5.4.1",
+    "inquirer": "^12.4.1"
+  }
+}
