@@ -10,7 +10,7 @@ async function pause() {
 }
 
 async function showMenu() {
-    await initTestData();
+    // await initTestData();
 
     while (true) {
         const { choice } = await inquirer.prompt([
@@ -298,29 +298,30 @@ async function showMenu() {
 async function initTestData() {
     try {
         const folder1 = new Folder("Folder 1");
-        const folder2 = new Folder("Folder 1", "/Folder 1");
-        const folder3 = new Folder("Folder 1", "/Folder 1/Folder 1");
+        const folder2 = new Folder("Folder 2");
+        const folder3 = new Folder("Folder 3");
 
         root.addFolder(folder1);
         folder1.addFolder(folder2);
         folder2.addFolder(folder3);
 
         const file1 = new File("File 1", "This is the content of File 1 in root.");
-        const file2 = new File("File 1", "This is the content of File 1 in Folder 1.");
-        const file3 = new File("File 1", "This is the content of File 1 in Folder 1/Folder 1.");
-        const file4 = new File("File 2", "This is the content of File 2 in root.");
-        const file5 = new File("File 1", "This is the content of File 1 in Folder 1/Folder 1/Folder 1.");
+        const file2 = new File("File 2", "This is the content of File 2 in Folder 1.");
+        const file3 = new File("File 3", "This is the content of File 3 in Folder 2.");
+        const file4 = new File("File 4", "This is the content of File 4 in root.");
+        const file5 = new File("File 5", "This is the content of File 5 in Folder 3.");
 
-        folder1.addFile(file1);
-        folder2.addFile(file2);
-        folder3.addFile(file3);
+        root.addFile(file1);
+        folder1.addFile(file2);
+        folder2.addFile(file3);
         root.addFile(file4);
         folder3.addFile(file5);
 
-        console.log(chalk.green("✔ Test data with duplicate and different names initialized successfully!"));
+        console.log(chalk.green("✔ Test data initialized successfully!"));
     } catch (error) {
         console.log(chalk.red("❌ Error initializing test data:", error.message));
     }
 }
+
 
 showMenu();
